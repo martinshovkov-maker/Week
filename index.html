@@ -10,31 +10,31 @@
 <title>Week</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
-body{background:#121212;color:#fff;font-family:system-ui,-apple-system,sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:24px 16px 90px;user-select:none}
-.days-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;max-width:360px;width:100%;margin-bottom:16px}
-.day-btn{background:#272727;color:#c8c8c8;border:none;border-radius:18px;padding:7px 14px;font-size:13px;font-weight:500;cursor:pointer}
-.day-btn.active{background:#3d3d3d;color:#fff}
-.home-btn{background:none;border:none;cursor:pointer;padding:6px;margin-bottom:28px;color:#9e9e9e}
+body{background:#121212;color:#fff;font-family:system-ui,-apple-system,sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:24px 14px 90px;user-select:none}
+.days-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;max-width:370px;width:100%;margin-bottom:18px}
+.day-btn{background:#1e1e1e;color:#d0d0d0;border:1px solid #383838;border-radius:18px;padding:7px 14px;font-size:13px;font-weight:500;cursor:pointer;transition:all .15s}
+.day-btn.active{background:#363636;color:#fff;border-color:#666}
+.home-btn{background:none;border:none;cursor:pointer;padding:6px;margin-bottom:26px;color:#9e9e9e}
 .home-btn.active{color:#fff}
 #home-view,#day-view{display:flex;flex-direction:column;align-items:center;width:100%;max-width:360px}
 #day-view{display:none}
-.meme-card{position:relative;width:210px;height:210px;border-radius:16px;overflow:hidden;background:#222;margin-bottom:32px;cursor:pointer}
-.meme-card img{width:100%;height:100%;object-fit:cover}
-.meme-text{position:absolute;bottom:8px;left:6px;right:6px;text-align:center;font-size:15px;font-weight:800;line-height:1.2;color:#fff;text-shadow:-1.5px -1.5px 0 #000,1.5px -1.5px 0 #000,-1.5px 1.5px 0 #000,1.5px 1.5px 0 #000,0 2px 4px #000}
-.play-main-btn{width:210px;height:52px;border-radius:26px;background:#222;border:none;display:flex;align-items:center;justify-content:center;cursor:pointer}
-.edit-actions{display:flex;justify-content:center;margin-bottom:22px}
-.pill-btn{background:#272727;color:#e0e0e0;border:none;border-radius:20px;padding:9px 22px;font-size:14px;font-weight:500;cursor:pointer;display:flex;align-items:center;gap:8px}
+.meme-card{position:relative;width:215px;height:215px;border-radius:16px;overflow:hidden;background:#242424;border:1px solid #333;margin-bottom:32px;cursor:pointer}
+.meme-card img{width:100%;height:100%;object-fit:cover;display:block}
+.meme-text{position:absolute;bottom:8px;left:6px;right:6px;text-align:center;font-size:15px;font-weight:800;line-height:1.2;color:#fff;text-shadow:-1.5px -1.5px 0 #000,1.5px -1.5px 0 #000,-1.5px 1.5px 0 #000,1.5px 1.5px 0 #000,0 2px 4px #000;pointer-events:none}
+.play-main-btn{width:215px;height:52px;border-radius:26px;background:#222;border:1px solid #333;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.edit-actions{display:flex;justify-content:center;gap:10px;margin-bottom:22px}
+.pill-btn{background:#222;color:#e0e0e0;border:1px solid #383838;border-radius:20px;padding:9px 20px;font-size:14px;font-weight:500;cursor:pointer;display:flex;align-items:center;gap:8px}
 .track-list{width:100%;display:flex;flex-direction:column;gap:12px}
 .track-item{display:flex;align-items:center;justify-content:space-between;padding:4px 6px}
 .track-info{display:flex;align-items:center;gap:14px;overflow:hidden;flex:1;cursor:pointer}
-.track-cover{width:44px;height:44px;border-radius:8px;background:#242424;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#888}
+.track-cover{width:44px;height:44px;border-radius:8px;background:#242424;border:1px solid #333;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#888}
 .track-meta{display:flex;flex-direction:column;overflow:hidden}
 .track-title{font-size:15px;font-weight:500;color:#f2f2f2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .track-sub{font-size:12px;color:#8a8a8a;margin-top:2px}
 .track-item.playing .track-title{color:#1db954}
 .delete-btn{background:none;border:none;color:#6e6e6e;padding:8px;cursor:pointer}
 .empty-hint{color:#666;font-size:14px;text-align:center;margin-top:36px}
-.mini-player{position:fixed;bottom:14px;left:14px;right:14px;max-width:380px;margin:0 auto;background:#222;border-radius:18px;padding:10px 16px;display:none;align-items:center;justify-content:space-between;gap:10px;z-index:100;box-shadow:0 6px 20px rgba(0,0,0,.5)}
+.mini-player{position:fixed;bottom:14px;left:14px;right:14px;max-width:380px;margin:0 auto;background:#222;border:1px solid #383838;border-radius:18px;padding:10px 16px;display:none;align-items:center;justify-content:space-between;gap:10px;z-index:100;box-shadow:0 6px 20px rgba(0,0,0,.5)}
 .mini-title{font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:1}
 .mini-controls{display:flex;align-items:center;gap:14px}
 .ctrl-btn{background:none;border:none;color:#fff;cursor:pointer}
@@ -48,7 +48,10 @@ body{background:#121212;color:#fff;font-family:system-ui,-apple-system,sans-seri
 <button class="play-main-btn" id="play-today-btn"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></button>
 </div>
 <div id="day-view">
-<div class="edit-actions"><button class="pill-btn" id="add-songs-btn">Редактировать <span style="font-size:18px;line-height:1">+</span></button></div>
+<div class="edit-actions">
+<button class="pill-btn" id="add-songs-btn">Редактировать <span style="font-size:18px;line-height:1">+</span></button>
+<button class="pill-btn" id="day-meme-btn" title="Выбрать картинку для этого дня">🖼</button>
+</div>
 <div class="track-list" id="track-list"></div>
 </div>
 <input type="file" id="audio-input" accept="audio/*" multiple hidden>
@@ -65,7 +68,8 @@ body{background:#121212;color:#fff;font-family:system-ui,-apple-system,sans-seri
 <script>
 if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js').catch(()=>{});
 const DAYS=[{key:'Monday',ru:'понедельник'},{key:'Tuesday',ru:'вторник'},{key:'Wednesday',ru:'среда'},{key:'Thursday',ru:'четверг'},{key:'Friday',ru:'пятница'},{key:'Saturday',ru:'суббота'},{key:'Sunday',ru:'воскресенье'}];
-const CAT="data:image/svg+xml;utf8,%3Csvg xmlns='http://w3.org' viewBox='0 0 300 300'%3E%3Crect width='300' height='300' fill='%23252525'/%3E%3Cpolygon points='75,125 95,45 142,98' fill='%23cfcfcf'/%3E%3Cpolygon points='225,125 205,45 158,98' fill='%23cfcfcf'/%3E%3Cpolygon points='86,115 99,62 132,98' fill='%23e89cae'/%3E%3Cpolygon points='214,115 201,62 168,98' fill='%23e89cae'/%3E%3Ccircle cx='150' cy='155' r='82' fill='%23dcdcdc'/%3E%3Ccircle cx='120' cy='140' r='13' fill='%23181818'/%3E%3Ccircle cx='180' cy='140' r='13' fill='%23181818'/%3E%3Ccircle cx='124' cy='136' r='4' fill='%23fff'/%3E%3Ccircle cx='184' cy='136' r='4' fill='%23fff'/%3E%3Cpolygon points='143,164 157,164 150,173' fill='%23e88c9e'/%3E%3Cpath d='M134,181 Q150,193 150,173 Q150,193 166,181' stroke='%23333' stroke-width='3.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E";
+function makeCat(){const c=document.createElement('canvas');c.width=300;c.height=300;const x=c.getContext('2d');x.fillStyle='#2a2a2a';x.fillRect(0,0,300,300);x.fillStyle='#cfcfcf';x.beginPath();x.moveTo(75,130);x.lineTo(95,45);x.lineTo(142,98);x.fill();x.beginPath();x.moveTo(225,130);x.lineTo(205,45);x.lineTo(158,98);x.fill();x.fillStyle='#e89cae';x.beginPath();x.moveTo(86,118);x.lineTo(99,62);x.lineTo(132,98);x.fill();x.beginPath();x.moveTo(214,118);x.lineTo(201,62);x.lineTo(168,98);x.fill();x.fillStyle='#dcdcdc';x.beginPath();x.arc(150,155,82,0,Math.PI*2);x.fill();x.fillStyle='#181818';x.beginPath();x.arc(120,140,13,0,Math.PI*2);x.fill();x.beginPath();x.arc(180,140,13,0,Math.PI*2);x.fill();x.fillStyle='#fff';x.beginPath();x.arc(124,136,4,0,Math.PI*2);x.fill();x.beginPath();x.arc(184,136,4,0,Math.PI*2);x.fill();x.fillStyle='#e88c9e';x.beginPath();x.moveTo(143,164);x.lineTo(157,164);x.lineTo(150,173);x.fill();return c.toDataURL()}
+const CAT=makeCat();
 const dIdx=new Date().getDay(),today=DAYS[dIdx===0?6:dIdx-1];let selDay=null,db,pl=[],idx=0,url=null;
 const req=indexedDB.open('WeekDB',1);
 req.onupgradeneeded=e=>{const d=e.target.result;if(!d.objectStoreNames.contains('t'))d.createObjectStore('t',{keyPath:'id',autoIncrement:true});if(!d.objectStoreNames.contains('m'))d.createObjectStore('m',{keyPath:'day'})};
@@ -80,7 +84,8 @@ function play(){const tr=pl[idx];if(!tr)return;if(url)URL.revokeObjectURL(url);u
 $('add-songs-btn').onclick=()=>$('audio-input').click();
 $('audio-input').onchange=async e=>{for(const f of e.target.files)await dbOp('t','readwrite',s=>s.add({day:selDay,name:f.name.replace(/\.[^/.]+$/,''),blob:f}));e.target.value='';renderTracks(selDay)};
 $('meme-card').onclick=()=>$('image-input').click();
-$('image-input').onchange=async e=>{const f=e.target.files;if(!f)return;await dbOp('m','readwrite',s=>s.put({day:today.key,blob:f}));e.target.value='';openHome()};
+$('day-meme-btn').onclick=()=>$('image-input').click();
+$('image-input').onchange=async e=>{const f=e.target.files;if(!f)return;const target=selDay||today.key;await dbOp('m','readwrite',s=>s.put({day:target,blob:f}));e.target.value='';selDay?alert('Картинка для '+target+' сохранена!'):openHome()};
 $('play-today-btn').onclick=async()=>{const all=await dbOp('t','readonly',s=>s.getAll()),list=all.filter(x=>x.day===today.key);if(!list.length)return alert(`На ${today.ru} пока нет песен!`);pl=list;idx=0;play()};
 $('toggle-play-btn').onclick=()=>{const a=$('audio-player');if(a.paused){a.play();$('play-pause-icon').innerHTML='<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>'}else{a.pause();$('play-pause-icon').innerHTML='<path d="M8 5v14l11-7z"/>'}};
 $('next-btn').onclick=()=>{if(pl.length){idx=(idx+1)%pl.length;play()}};
